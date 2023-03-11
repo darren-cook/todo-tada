@@ -6,6 +6,7 @@
 
 :root {
     --white: #ffffff;
+    --low-opacity-white: rgba(255, 255, 255, 0.5);
     --black: #000000;
     --light-grey: #F2F5F2;
     --light-blue: #73BEE8;
@@ -19,19 +20,28 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 4rem;
-    padding: .75rem;
+#side-panel {
+    background-color: var(--dark-blue);
+    width: 15.46rem;
+    height: 100vh;
 }
 
-#logos{
-    display: flex;
-    align-items: center;
-    padding-left: .25rem;
-    color: var(--black);
+header {
+    color: var(--white);
     font-family: 'Lobster', cursive;
-    color: var(--dark-grey)
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 1rem 0;
+}
+
+header:after {
+    content: "";
+    position: absolute;
+    width: 75%;
+    height: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    background-color: var(--low-opacity-white);
 }
