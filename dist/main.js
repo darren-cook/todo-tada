@@ -1,1 +1,1 @@
-console.log("test");
+document.querySelectorAll(".nav-button").forEach((o=>o.addEventListener("click",(function(){event.stopPropagation(),console.log(o.id)}))));
