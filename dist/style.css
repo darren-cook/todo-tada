@@ -28,16 +28,17 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--light-black);
-    width: 15.46rem;
+    width: 17rem;
     height: 100%;
 }
 
 header {
-    flex: 0 1 auto;
+    display: flex;
+    width: 100%;
     color: var(--white);
     font-family: 'Lobster', cursive;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     position: relative;
     padding: 1rem 0;
 }
@@ -45,7 +46,7 @@ header {
 header:after {
     content: "";
     position: absolute;
-    width: 75%;
+    width: 90%;
     height: 2px;
     left: 50%;
     transform: translateX(-50%);
@@ -53,14 +54,18 @@ header:after {
     background-color: var(--dark-white);
 }
 
+#nav-minmax {
+    display: none;
+}
+
 nav {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     color: var(--dark-white);
-    padding: 2rem 0 2rem 2rem;
+    padding: 2rem 2rem 2rem 0;
 }
 
 #nav-links {
@@ -87,6 +92,25 @@ nav li {
 
 nav li:hover {
     filter: var(--to-white);
+}
+
+@media only screen and (max-width: 1120px) {
+    #side-panel {
+        width: 3rem;
+    }
+
+    nav {
+        padding: 2rem 0;
+    }
+
+    #nav-minmax {
+        display: block;
+    }
+
+    .nav-button-text, 
+    h1 {
+        display: none;
+    }
 }
 
 
