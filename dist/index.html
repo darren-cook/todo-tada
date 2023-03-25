@@ -56,43 +56,56 @@
                         <div class="nav-text nav-text-closed">30 Days</div>
                     </li>
                 </ul>
-            </ul>
-            <ul id="nav-tools">
-                <li id="nav-import" class="nav-button">
-                    <img src="./images/import-custom.png" alt="Import Icon">
-                    <div class="nav-text nav-text-closed">Example To-Do List</div>
-                </li>
-                <li id="nav-delete" class="nav-button">
-                    <img src="./images/delete-outline-custom.png" alt="Delete Icon">
-                    <div class="nav-text nav-text-closed">Reset To-Do List</div>
-                </li>
+                <ul id="nav-tools">
+                    <li id="nav-import" class="nav-button">
+                        <img src="./images/import-custom.png" alt="Import Icon">
+                        <div class="nav-text nav-text-closed">Example To-Do List</div>
+                    </li>
+                    <li id="nav-delete" class="nav-button">
+                        <img src="./images/delete-outline-custom.png" alt="Delete Icon">
+                        <div class="nav-text nav-text-closed">Reset To-Do List</div>
+                    </li>
+                </ul>
             </ul>
         </nav>
     </div>
     <main>
         <div id="home-container" class="main-container">
             <h2>Home</h2>
-            <div id="Action Center" class="main-card">
+            <div id="home-action">
                 <h3>Action Center</h3>
-                <div id="action-center-top">
-                    <button>Create Task</button>
-                    <button>Create Project</button>
-                </div>
-                <div id="action-center-bottom">
-                    <div id="action-overdue">
-                        <p>Overdue tasks:</p>
-                        <p id="action-overdue-count">4</p>
-                        <button>View Details</button>
+                <div id="action-container">
+                    <div id="action-buttons" class="action-card">
+                        <h4>Quick Links</h4>
+                        <button>New To Do</button>
+                        <button>New Project</button>
                     </div>
-                    <div id="action-next">
-                        <p>Next task due at:</p>
-                        <p id="action-next-date">March 12th, 2023 at 11:00pm</p>
-                        <p id="action-next-time">3 hours 23 minutes</p>
-                        <button>View Details</button>
+                    <div id="action-next" class="action-card">
+                        <h4>Next To Do:</h4>
+                        <div>
+                            <p>Task Title</p>
+                            <p>Task Due Date</p>
+                            <p>Task Due Time</p>
+                            <button>See Details</button>
+                        </div>
+                    </div>
+                    <div id="action-overdue" class="action-card">
+                        <h4>Over Due</h4>
+                        <div>
+                            <p>5 To Do's Overdue</p>
+                            <button>See Details</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            
+            <div id="home-glance">
+                <h3>At a Glance</h3>
+                <div>Today</div>
+            </div>
+            <div id="home-calendar">
+                <h3>Calendar</h3>
+                <p>March</p>
+            </div>
         </div>
     </main>
     <script src="main.js"></script>
