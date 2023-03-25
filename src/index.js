@@ -4,7 +4,10 @@ const navToggle = document.querySelector("#nav-toggle");
 navButtons.forEach(navButton =>(
     navButton.addEventListener("click",function(){
         event.stopPropagation();
-        console.log(navButton.id)
+        const navActive = document.querySelector(".nav-active");
+
+        navActive.classList.toggle("nav-active");
+        navButton.classList.toggle("nav-active");
     })
 ))
 
