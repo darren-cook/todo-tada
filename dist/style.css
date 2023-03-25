@@ -19,15 +19,20 @@
 }
 
 body {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
     height: 100vh;
     width: 100vw;
     background-color: var(--dark-white);
     font-family: 'Roboto', sans-serif;
 }
 
+/* ---------- Side Panel ---------- */
+
 #side-panel {
     display: flex;
     flex-direction: column;
+    z-index: 1;
     background-color: var(--light-black);
     height: 100%;
     transition: var(--transition-speed);
@@ -130,6 +135,28 @@ nav li {
 nav li:hover {
     filter: var(--to-white);
 }
+
+/* ---------- Main Container ---------- */
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    width: min(80%, 1200px);
+    padding: 1.5rem;
+    background-color: pink;
+}
+
+h2 {
+    font-size: 1.17em;
+    width: 100%;
+    border-bottom: 1px solid black;
+    padding-bottom: 1.5rem;
+}
+
+/* ---------- Home Container ---------- */
 
 
 
