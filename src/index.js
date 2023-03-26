@@ -1,3 +1,5 @@
+import { result } from "./calendar";
+
 const navButtons = document.querySelectorAll(".nav-button");
 const navToggle = document.querySelector("#nav-toggle");
 

@@ -7,6 +7,7 @@
 :root {
     --white: #ffffff;
     --low-opacity-white: rgba(255, 255, 255, 0.5);
+    --medium-opacity-white: rgba(255, 255, 255, 0.8);
     --dark-white: #EDF1E8;
     --light-green: #87B190;
     --green: #4BAF54;
@@ -179,7 +180,7 @@ h2 {
 }
 
 .action-card {
-    background-color: var(--white);
+    background-color: var(--medium-opacity-white);
     padding: 1rem;
     border-radius: 8px;
     height: 10rem;
