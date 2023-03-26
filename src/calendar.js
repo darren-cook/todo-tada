@@ -24,7 +24,7 @@ function getMonthData(monthArray){
         const day = format(date, "d");
         monthDataFormatted.push([year, month, day]);
     });
-    return(monthData)
+    return(monthDataFormatted)
 }
 
 console.log(monthData);
