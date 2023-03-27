@@ -22,30 +22,30 @@ function getMonthData(monthArray){
         const year = format(date, "yyyy");
         const month = format(date, "LLL");
         const day = format(date, "d");
-        const week = format(date, "iii");
-        monthDataFormatted.push([year, month, day, week]);
+        const dayOf = format(date, "iii");
+        monthDataFormatted.push([year, month, day, dayOf]);
     });
     return(monthDataFormatted)
 }
 
-console.log(monthData);
+// console.log(monthData);
 
-monthArray[1] = monthArray[1]-1;
+// monthArray[1] = monthArray[1]-1;
 
-console.log(getMonthData(monthArray))
+// console.log(getMonthData(monthArray))
 
-monthArray[1] = monthArray[1]-1;
+// monthArray[1] = monthArray[1]-1;
 
-console.log(getMonthData(monthArray))
+// console.log(getMonthData(monthArray))
 
-monthArray[1] = monthArray[1]-1;
+// monthArray[1] = monthArray[1]-1;
 
-console.log(getMonthData(monthArray))
+// console.log(getMonthData(monthArray))
 
-monthArray[1] = monthArray[1]-1;
+// monthArray[1] = monthArray[1]-1;
 
-console.log(getMonthData(monthArray))
+// console.log(getMonthData(monthArray))
 
-monthArray[1] = monthArray[1]-1;
+// monthArray[1] = monthArray[1]-1;
 
-console.log(getMonthData(monthArray))
+// console.log(getMonthData(monthArray))
