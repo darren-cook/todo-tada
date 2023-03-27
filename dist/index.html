@@ -71,17 +71,28 @@
     </div>
     <main>
         <div id="home-container" class="main-container">
-            <h2>Home</h2>
+            <div id="home-heading" class="main-heading">
+                <h2>Home</h2>
+                <p>March 23, 2023</p>
+            </div>
             <div id="home-action">
                 <h3>Action Center</h3>
                 <div id="action-container">
-                    <div id="action-buttons" class="action-card">
-                        <h4>Quick Links</h4>
-                        <button>New To Do</button>
-                        <button>New Project</button>
+                    <div class="action-card">
+                        <h4 class="action-header">Quick Links</h4>
+                        <div id="action-buttons">
+                            <button id="action-todo" class="action-button">
+                                <img src="./images/plus-circle-custom.png" alt="Create Icon">
+                                New To Do
+                            </button>
+                            <button id="action-task" class="action-button">
+                                <img src="./images/plus-circle-custom.png" alt="Create Icon">
+                                New Project
+                            </button>
+                        </div>
                     </div>
                     <div id="action-next" class="action-card">
-                        <h4>Next To Do</h4>
+                        <h4 class="action-header">Next To Do</h4>
                         <div>
                             <p>Task Title</p>
                             <p>Task Due Date</p>
@@ -90,7 +101,7 @@
                         </div>
                     </div>
                     <div id="action-overdue" class="action-card">
-                        <h4>Over Due</h4>
+                        <h4 class="action-header">Over Due</h4>
                         <div>
                             <p>5 To Do's Overdue</p>
                             <button>See Details</button>

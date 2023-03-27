@@ -11,6 +11,7 @@
     --dark-white: #EDF1E8;
     --light-green: #87B190;
     --green: #4BAF54;
+    --low-opactiy-green: #4baf534b;
     --dark-green: #7C7E63;
     --black: #000000;
     --light-black: #262B2B;
@@ -158,10 +159,12 @@ main {
     padding-top: 1.5rem;
 }
 
-h2 {
-    width: 100%;
+.main-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border-bottom: 1px solid black;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
 }
 
 /* ---------- Home Container ---------- */
@@ -181,11 +184,35 @@ h2 {
 }
 
 .action-card {
-    background-color: var(--medium-opacity-white);
+    background-color: var(--white);
     padding: 1rem;
     border-radius: 8px;
     height: 10rem;
     width: 15rem;
+    border: 1px solid black;
+}
+
+#action-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    gap: .25rem;
+    border: none;
+    background-color: var(--white);
+    color: var(--green);
+    font-size: 1rem;
+    border: 1px solid black;
+    padding: .5rem 1rem;
+    width: 150px;
 }
 
 #home-calendar {
@@ -196,9 +223,10 @@ h2 {
 
 #calendar-container {
     align-self: center;
-    background-color: var(--medium-opacity-white);
+    background-color: var(--white);
     border-radius: 8px;
     margin-bottom: 1.5rem;
+    border: 1px solid black;
 }
 
 #calendar-top {
@@ -236,12 +264,21 @@ h2 {
     font-size: .67rem;
 }
 
+#calendar-top {
+    padding: 2rem 0;
+}
+
+#calendar-main-large {
+    padding: 0 2rem;
+}
+
 #calendar-main-small {
     display: none;
 }
 
 #calendar-bottom {
     margin: 1.5rem 0;
+    font-size: .83rem;
 }
 
 #calendar-icons {
@@ -258,15 +295,18 @@ h2 {
 
 
 
-@media only screen and (max-width: 651px) {
+@media only screen and (max-width: 740px) {
     #action-container {
         justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 
     #calendar-main-small {
         display: flex;
         flex-direction: column;
         width: 15rem;
+        padding: 1rem;
     }
 
     #calendar-main-large,
