@@ -4,10 +4,27 @@
     box-sizing: border-box;
 }
 
+.chart-container {
+    position: relative;
+}
+
+.chart-total {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+canvas {
+    width: calc(var(--width)/7.5);
+    width: clamp(40px, calc(var(--width)/7.5), 110px);
+}
+
 :root {
     --white: #ffffff;
     --black: #000000;
     --primary-blue: #0081a7;
+    --width: clamp(320px, 95vw, 1024px);
 }
 
 body {
@@ -24,8 +41,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    min-width: 320px;
-    max-width: 960px;
+    width: var(--width);
     padding: 1rem .25rem;
 }
 

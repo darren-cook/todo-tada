@@ -21,7 +21,55 @@
             </ul>
         </nav>
         <main>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui iure ullam totam veniam numquam omnis ratione hic natus rerum necessitatibus, nihil impedit. Soluta.</p>
+            <div id="main-calendar">
+                <h2>Calendar</h2>
+                <div id="calendar-top">
+                    <h3>March</h3>
+                    <table>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                        <tr>
+                            <td class="chart-container">
+                                <p class="chart-date">1</p>
+                                <canvas id="myChart"></canvas>
+                                <p class="chart-total">127</p>
+                            </td>
+                            <td>
+                                <p>1</p>
+                                <canvas id="myChart1"></canvas>
+                            </td>
+                            <td>
+                                <p>1</p>
+                                <canvas id="myChart2"></canvas>
+                            </td>
+                            <td>
+                                <p>1</p>
+                                <canvas id="myChart3"></canvas>
+                            </td>
+                            <td>
+                                <p>1</p>
+                                <canvas id="myChart4"></canvas>
+                            </td>
+                            <td>
+                                <p>1</p>
+                                <canvas id="myChart5"></canvas>
+                            </td>
+                            <td>
+                                <p>1</p>
+                                <canvas id="myChart6"></canvas>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- <canvas id="myChart"></canvas> -->
         </main>
         <section id="add-section">
             <button id="add-button">+</button>
@@ -1065,6 +1113,7 @@
             </div>
         </div>
     </main> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
