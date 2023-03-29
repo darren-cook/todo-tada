@@ -23,26 +23,24 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
     min-width: 320px;
     max-width: 960px;
-    padding: 1rem;
+    padding: 1rem .25rem;
 }
 
 /* ----- Nav ----- */
 
 nav {
-    height: 6vh;
-    width: 100%;
+    height: calc(min-content + 7px);
+    width: min(750px, 100%);
 }
 
 #nav-items {
     height: 100%;
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: space-around;
     list-style: none;
 }
 
@@ -51,7 +49,7 @@ nav {
     cursor: pointer;
     border-bottom: 0 solid var(--primary-blue);
     border-top: 0 solid var(--primary-blue);
-    transition: 100ms ease-in-out;
+    transition: 75ms ease-in-out;
 }
 
 .nav-item:hover {
@@ -68,16 +66,18 @@ main {
     height: 80vh;
     width: 100%;
     overflow-y: auto;
+    margin-top: 2rem;
 }
 
 /* ----- Add Button ----- */
 
 #add-section {
-    height: 14vh;
+    height: min-content;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    padding-right: .5rem;
 }
 
 #add-button {
