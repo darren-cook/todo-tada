@@ -16,15 +16,22 @@
             <ul id="nav-items">
                 <li class="nav-item nav-active">Calendar</li>
                 <li class="nav-item">To Dos</li>
-                <li class="nav-item">Regulars</li>
+                <li class="nav-item">Recurrings</li>
                 <li class="nav-item">Projects</li>
             </ul>
         </nav>
         <main>
-            <div id="main-calendar">
-                <h2>Calendar</h2>
+            <div id="main-calendar" class="main-container">
+                <h2 class="main-heading">Calendar</h2>
                 <div id="calendar-top">
-                    <h3>March</h3>
+                    <button id="calendar-backward" class="calendar-button">&lt</button>
+                    <h3 id="calendar-date">
+                        <span id="calendar-month">March</span>
+                        <span id="calendar-year">2023</span>
+                    </h3>
+                    <button id="calendar-forward" class="calendar-button">&gt</button>
+                </div>
+                <div id="calendar-mid">
                     <table>
                         <tr>
                             <th>Sun</th>
@@ -36,37 +43,83 @@
                             <th>Sat</th>
                         </tr>
                         <tr>
-                            <td class="chart-container">
+                            <td>
                                 <p class="chart-date">1</p>
-                                <canvas id="myChart"></canvas>
+                                <div class="chart-container">
+                                    <canvas id="myChart"></canvas>
+                                </div>
                                 <p class="chart-total">127</p>
                             </td>
-                            <td>
-                                <p>1</p>
-                                <canvas id="myChart1"></canvas>
+                            <td class="chart-container">
+                                <p class="chart-date">1</p>
+                                <div class="chart-container">
+                                    <canvas id="myChart1"></canvas>
+                                </div>
+                                <p class="chart-total">127</p>
                             </td>
-                            <td>
-                                <p>1</p>
-                                <canvas id="myChart2"></canvas>
+                            <td class="chart-container">
+                                <p class="chart-date">1</p>
+                                <div class="chart-container">
+                                    <canvas id="myChart2"></canvas>
+                                </div>
+                                <p class="chart-total">127</p>
                             </td>
-                            <td>
-                                <p>1</p>
-                                <canvas id="myChart3"></canvas>
+                            <td class="chart-container">
+                                <p class="chart-date">1</p>
+                                <div class="chart-container">
+                                    <canvas id="myChart3"></canvas>
+                                </div>
+                                <p class="chart-total">127</p>
                             </td>
-                            <td>
-                                <p>1</p>
-                                <canvas id="myChart4"></canvas>
+                            <td class="chart-container">
+                                <p class="chart-date">1</p>
+                                <div class="chart-container">
+                                    <canvas id="myChart4"></canvas>
+                                </div>
+                                <p class="chart-total">127</p>
                             </td>
-                            <td>
-                                <p>1</p>
-                                <canvas id="myChart5"></canvas>
+                            <td class="chart-container">
+                                <p class="chart-date">1</p>
+                                <div class="chart-container">
+                                    <canvas id="myChart5"></canvas>
+                                </div>
+                                <p class="chart-total">127</p>
                             </td>
-                            <td>
-                                <p>1</p>
-                                <canvas id="myChart6"></canvas>
+                            <td class="chart-container">
+                                <p class="chart-date">1</p>
+                                <div class="chart-container">
+                                    <canvas id="myChart6"></canvas>
+                                </div>
+                                <p class="chart-total">127</p>
                             </td>
                         </tr>
                     </table>
+                </div>
+                <div id="calendar-bottom">
+                    <div class="calendar-keys">
+                        <div class="calendar-key">
+                            <span id="key-complete" class="calendar-key-color"></span>
+                            <p>Complete</p>
+                        </div>
+                        <div class="calendar-key">
+                            <span id="key-overdue" class="calendar-key-color"></span>
+                            <p>Overdue</p>
+                        </div>
+                    </div>
+                    <div class="calendar-keys">
+                        <div class="calendar-key">
+                            <span id="key-priority" class="calendar-key-color"></span>
+                            <p>High Priority</p>
+                        </div>
+                        <div class="calendar-key">
+                            <span id="key-regular" class="calendar-key-color"></span>
+                            <p>Regular Priority</p>
+                        </div>
+                        <div class="calendar-key">
+                            <span id="key-recurring" class="calendar-key-color"></span>
+                            <p>Recurring</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- <canvas id="myChart"></canvas> -->
