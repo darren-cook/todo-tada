@@ -70,7 +70,7 @@ main {
     height: 80vh;
     width: 100%;
     overflow-y: auto;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .main-container {
@@ -117,12 +117,12 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: .5rem;
 }
 
 #calendar-top {
     display: flex;
-    gap: 1.5rem;
+    gap: .5rem;
 }
 
 #calendar-date {
@@ -161,8 +161,10 @@ td {
 }
 
 .chart-container {
-    width: calc(var(--width)/9);
-    height: calc(var(--width)/9);
+    /* width: calc(var(--width)/9);
+    height: calc(var(--width)/9); */
+    width: clamp(32px, calc(var(--width)/9), 55px);
+    height: clamp(32px, calc(var(--width)/9), 55px);
 }
 
 .chart-total {
@@ -174,7 +176,6 @@ td {
 }
 
 canvas {
-    /* width: calc(var(--width)/8.5); */
     width: 100%;
     height: 100%;
 }

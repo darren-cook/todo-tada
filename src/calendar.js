@@ -24,7 +24,7 @@ function getMonthData(monthArray){
         const month = format(date, "LLL");
         const day = format(date, "d");
         const dayOfWeek = format(date, "iii");
-        const numOfWeek = format(date, "e");
+        const numOfWeek = format(date, "e")-1;
         monthData.push([year, month, day, dayOfWeek, numOfWeek]);
     });
     return(monthData)
@@ -32,32 +32,6 @@ function getMonthData(monthArray){
 
 function calendarTest(){
     generateTable(monthData);
-    const ctx = document.getElementById('myChart');
-    
-    new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Complete', 'Overdue', 'High Priority', 'Regular Priority', 'Recurring'],
-            datasets: [{
-                data: [7, 5, 3, 5, 2],
-                backgroundColor: ["green", "red", "orange", "yellow", "cyan"],
-                borderWidth: .5,
-                cutout: '70%',
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                tooltip: {
-                    enabled: false,
-                },
-                legend: {
-                    display: false,
-                },
-            }
-        }
-        });
     }
 
 function generateTable(monthData) {
@@ -77,6 +51,9 @@ function generateTable(monthData) {
 
             const chartContainer = document.createElement("div");
             chartContainer.classList.add("chart-container");
+            const chartCanvas = document.createElement("canvas");
+            chartCanvas.classList.add("chart-canvas");
+            chartContainer.appendChild(chartCanvas);
             cell.appendChild(chartContainer);
 
             const total = document.createElement("p");
@@ -96,13 +73,47 @@ function generateTable(monthData) {
 
 function fillTable(monthData) {
     const chartDates = document.querySelectorAll(".chart-date");
-    const firstNumOfWeek = (monthData[0][4])-1;
+    const chartCanvases = document.querySelectorAll(".chart-canvas");
+    const firstNumOfWeek = (monthData[0][4]);
 
     for(let i=firstNumOfWeek, j=0; j<monthData.length; i++, j++){
         chartDates[i].innerHTML = monthData[j][2];
+        chartCanvases[i].id = `chart-canvas${j}`;
+
+        const ctx = document.getElementById(`chart-canvas${j}`);
+
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Complete', 'Overdue', 'High Priority', 'Regular Priority', 'Recurring'],
+                datasets: [{
+                    data: [7, 5, 3, 5, 2],
+                    backgroundColor: ["green", "red", "orange", "yellow", "cyan"],
+                    borderWidth: .5,
+                    cutout: '70%',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        enabled: false,
+                    },
+                    legend: {
+                        display: false,
+                    },
+                }
+            }
+            });
     }
+
     console.log(monthData)
 }
+
+// const chartFactory = () => {
+
+// }
 
 export { calendarTest }
 
