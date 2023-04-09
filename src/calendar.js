@@ -73,11 +73,13 @@ function generateTable(monthData) {
 
 function fillTable(monthData) {
     const chartDates = document.querySelectorAll(".chart-date");
+    const chartTotals = document.querySelectorAll(".chart-total");
     const chartCanvases = document.querySelectorAll(".chart-canvas");
     const firstNumOfWeek = (monthData[0][4]);
 
     for(let i=firstNumOfWeek, j=0; j<monthData.length; i++, j++){
         chartDates[i].innerHTML = monthData[j][2];
+        chartTotals[i].innerHTML = monthData[j][2];
         chartCanvases[i].id = `chart-canvas${j}`;
 
         const ctx = document.getElementById(`chart-canvas${j}`);
@@ -85,12 +87,12 @@ function fillTable(monthData) {
         new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['Complete', 'Overdue', 'High Priority', 'Regular Priority', 'Recurring'],
+                labels: ['Complete', 'To Do', 'Overdue'],
                 datasets: [{
-                    data: [7, 5, 3, 5, 2],
-                    backgroundColor: ["green", "red", "orange", "yellow", "cyan"],
-                    borderWidth: .5,
-                    cutout: '70%',
+                    data: [7, 5, 3],
+                    backgroundColor: ["green", "orange", "red"],
+                    borderWidth: 0,
+                    cutout: '80%',
                 }]
             },
             options: {
