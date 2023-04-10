@@ -73,6 +73,14 @@ main {
     margin-top: 1rem;
 }
 
+main::-webkit-scrollbar {
+    width: 3px;
+}
+
+main::-webkit-scrollbar-thumb {
+    background-color: var(--primary-blue);
+}
+
 .main-container {
     width: 100%;
 }
