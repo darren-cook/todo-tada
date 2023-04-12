@@ -1,8 +1,9 @@
-import { eachDayOfInterval } from "date-fns";
 import { format } from "date-fns";
-import { Chart } from 'chart.js/auto';
+import { eachDayOfInterval } from "date-fns";
+import { compareAsc } from "date-fns";
 
-let monthArray = getMonthArray(new Date);
+const today = new Date;
+let monthArray = getMonthArray(today);
 let monthData = getMonthData(monthArray);
 
 function getMonthArray(date){
@@ -20,21 +21,29 @@ function getMonthData(monthArray){
     })
     monthRange.pop();
     monthRange.forEach(date => {
+        // Examples for "Wednesday March 15th, 2023"
         const year = format(date, "yyyy");
+        // 2023
         const month = format(date, "LLL");
+        // Mar
         const day = format(date, "d");
+        // 15
         const dayOfWeek = format(date, "iii");
+        // Wed
         const numOfWeek = format(date, "e")-1;
-        monthData.push([year, month, day, dayOfWeek, numOfWeek]);
+        // 3 (4-1)
+        const numOfYear = format(date, "L")
+        // 3
+        monthData.push([year, month, day, dayOfWeek, numOfWeek, numOfYear]);
     });
     return(monthData)
 }
 
 function calendarTest(){
-    generateTable(monthData);
+    generateCalendar(monthData);
     }
 
-function generateTable(monthData) {
+function generateCalendar(monthData) {
     const table = document.getElementById("calendar-table");
     let count = 0;
 
@@ -45,20 +54,13 @@ function generateTable(monthData) {
             const cell = document.createElement("td");
             cell.id = `cell${count}`;
 
-            const date = document.createElement("p");
-            date.classList.add("chart-date");
-            cell.appendChild(date);
+            const calendarDate = document.createElement("p");
+            calendarDate.classList.add("calendar-date");
+            cell.appendChild(calendarDate);
 
-            const chartContainer = document.createElement("div");
-            chartContainer.classList.add("chart-container");
-            const chartCanvas = document.createElement("canvas");
-            chartCanvas.classList.add("chart-canvas");
-            chartContainer.appendChild(chartCanvas);
-            cell.appendChild(chartContainer);
-
-            const total = document.createElement("p");
-            total.classList.add("chart-total");
-            cell.appendChild(total);
+            const calendarTask = document.createElement("div");
+            calendarTask.classList.add("calendar-task")
+            cell.appendChild(calendarTask);
 
             row.appendChild(cell)
 
@@ -68,54 +70,27 @@ function generateTable(monthData) {
         table.appendChild(row);
     }
 
-    fillTable(monthData);
+    fillCalendar(monthData);
 }
 
-function fillTable(monthData) {
-    const chartDates = document.querySelectorAll(".chart-date");
-    const chartTotals = document.querySelectorAll(".chart-total");
-    const chartCanvases = document.querySelectorAll(".chart-canvas");
+function fillCalendar(monthData) {
+    const calendarDates = document.querySelectorAll(".calendar-date");
+    const calendarTasks = document.querySelectorAll(".calendar-task");
     const firstNumOfWeek = (monthData[0][4]);
+    const todayArray = [format(today, "yyyy"), format(today, "L"), format(today, "d")];
 
     for(let i=firstNumOfWeek, j=0; j<monthData.length; i++, j++){
-        chartDates[i].innerHTML = monthData[j][2];
-        chartTotals[i].innerHTML = monthData[j][2];
-        chartCanvases[i].id = `chart-canvas${j}`;
+        const day = monthData[j][2];
+        calendarDates[i].innerHTML = day;
+     
+        const compArray = [monthData[j][0], monthData[j][5], monthData[j][2]];
+        const asc = compareAsc(new Date(todayArray[0], todayArray[1], todayArray[2]), new Date(compArray[0], compArray[1], compArray[2]));
 
-        const ctx = document.getElementById(`chart-canvas${j}`);
-
-        new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Complete', 'To Do', 'Overdue'],
-                datasets: [{
-                    data: [7, 5, 3],
-                    backgroundColor: ["green", "orange", "red"],
-                    borderWidth: 0,
-                    cutout: '80%',
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    tooltip: {
-                        enabled: false,
-                    },
-                    legend: {
-                        display: false,
-                    },
-                }
-            }
-            });
+        console.log(`Today = ${todayArray} - Comp = ${compArray} asc = ${asc}`)
     }
 
-    console.log(monthData)
+    // console.log(monthData)
 }
-
-// const chartFactory = () => {
-
-// }
 
 export { calendarTest }
 
