@@ -8,6 +8,7 @@
     --white: #ffffff;
     --black: #000000;
     --primary-blue: #0081a7;
+    --primary-blue-opacity: #0080a77a;
     --width: clamp(320px, 95vw, 960px);
 }
 
@@ -161,11 +162,22 @@ th {
 td {
     position: relative;
     border: 1px solid black;
-    padding: .20rem;
 }
 
-.chart-date {
+.date-invalid {
+    visibility: hidden;
+    border: none;
+}
+
+.calendar-today {
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-date {
     font-size: .83rem;
+    padding: .10rem;
 }
 
 #calendar-bottom {
@@ -175,6 +187,23 @@ td {
     align-items: center;
     justify-content: center;
     gap: .5rem;
+}
+
+.calendar-task-container {
+    height: clamp(40px, var(--width)/8.5, 65px);
+    width: clamp(40px, var(--width)/8.5, 65px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .25rem;
+    flex-wrap: wrap;
+}
+
+.calendar-span-color {
+    padding: 2px 4px;
+    font-size: .67rem;
+    border-radius: 4px;
+    font-weight: bold;
 }
 
 .calendar-key {
@@ -191,14 +220,14 @@ td {
     border-radius: 50%;
 }
 
-#key-complete {
-    background-color: green;
+.calendar-key-complete {
+    background-color: rgb(73, 248, 85);
 }
 
-#key-overdue {
-    background-color: red;
+.calendar-key-overdue {
+    background-color: rgb(255, 85, 85);
 }
 
-#key-to-do {
-    background-color: orange;
+.calendar-key-todo {
+    background-color: rgb(253, 194, 85);
 }

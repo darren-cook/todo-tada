@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import { eachDayOfInterval } from "date-fns";
+import { eachWeekOfInterval } from "date-fns";
 import { compareAsc } from "date-fns";
 
 const today = new Date;
@@ -32,8 +33,8 @@ function getMonthData(monthArray){
         // Wed
         const numOfWeek = format(date, "e")-1;
         // 3 (4-1)
-        const numOfYear = format(date, "L")
-        // 3
+        const numOfYear = format(date, "L")-1;
+        // 2 (3-1)
         monthData.push([year, month, day, dayOfWeek, numOfWeek, numOfYear]);
     });
     return(monthData)
@@ -44,52 +45,76 @@ function calendarTest(){
     }
 
 function generateCalendar(monthData) {
-    const table = document.getElementById("calendar-table");
-    let count = 0;
+    const weekCount = eachWeekOfInterval({
+        start: new Date(monthData[0][0], monthData[0][5], monthData[0][2]),
+        end: new Date(monthData[monthData.length-1][0], monthData[monthData.length-1][5], monthData[monthData.length-1][2])
+    }).length
 
-    for(let week=0; week<6; week++){
+    const firstNumOfWeek = (monthData[0][4]);
+    const offset = (firstNumOfWeek-1)*-1;
+
+    const table = document.getElementById("calendar-table");
+    let date = offset;
+
+    for(let week=0; week<weekCount; week++){
         const row = document.createElement("tr");
 
         for(let day=0; day<7; day++){
             const cell = document.createElement("td");
-            cell.id = `cell${count}`;
+            cell.id = `${monthData[0][0]},${monthData[0][1]},${date}`;
 
-            const calendarDate = document.createElement("p");
-            calendarDate.classList.add("calendar-date");
-            cell.appendChild(calendarDate);
-
-            const calendarTask = document.createElement("div");
-            calendarTask.classList.add("calendar-task")
-            cell.appendChild(calendarTask);
-
-            row.appendChild(cell)
-
-            count++;
+            if(date<1 || date>monthData.length){
+                cell.classList.add("date-invalid")
+            } else {
+                fillCell(cell, monthData[date-1]);
+            }
+            row.appendChild(cell);
+            date++;
         }
-
         table.appendChild(row);
     }
-
-    fillCalendar(monthData);
 }
+function fillCell(cell, dayData){
+    const calendarDate = document.createElement("p");
+    calendarDate.classList.add("calendar-date");
+    calendarDate.innerHTML = dayData[2]
+    cell.appendChild(calendarDate);
 
-function fillCalendar(monthData) {
-    const calendarDates = document.querySelectorAll(".calendar-date");
-    const calendarTasks = document.querySelectorAll(".calendar-task");
-    const firstNumOfWeek = (monthData[0][4]);
-    const todayArray = [format(today, "yyyy"), format(today, "L"), format(today, "d")];
+    const calendarTaskContainer = document.createElement("div");
+    calendarTaskContainer.classList.add("calendar-task-container");
 
-    for(let i=firstNumOfWeek, j=0; j<monthData.length; i++, j++){
-        const day = monthData[j][2];
-        calendarDates[i].innerHTML = day;
-     
-        const compArray = [monthData[j][0], monthData[j][5], monthData[j][2]];
-        const asc = compareAsc(new Date(todayArray[0], todayArray[1], todayArray[2]), new Date(compArray[0], compArray[1], compArray[2]));
+    const todayArray = [format(today, "yyyy"), format(today, "L")-1, format(today, "d")];
+    const compArray = [dayData[0], dayData[5], dayData[2]];
+    const dateComparison = compareAsc(
+        new Date(todayArray[0], todayArray[1], todayArray[2]), 
+        new Date(compArray[0], compArray[1], compArray[2])
+    );
 
-        console.log(`Today = ${todayArray} - Comp = ${compArray} asc = ${asc}`)
+    if(dateComparison===0){
+        calendarDate.classList.add("calendar-today");
+
+        const todoSpan = document.createElement("span");
+        todoSpan.classList.add("calendar-span-color");
+        todoSpan.classList.add("calendar-key-todo");
+        todoSpan.innerHTML = "79";
+
+        calendarTaskContainer.appendChild(todoSpan);
+
+        const overdueSpan = document.createElement("span");
+        overdueSpan.classList.add("calendar-span-color");
+        overdueSpan.classList.add("calendar-key-overdue");
+        overdueSpan.innerHTML = "7";
+
+        calendarTaskContainer.appendChild(overdueSpan);
+
+        const completeSpan = document.createElement("span");
+        completeSpan.classList.add("calendar-span-color");
+        completeSpan.classList.add("calendar-key-complete");
+        completeSpan.innerHTML = "7";
+
+        calendarTaskContainer.appendChild(completeSpan);
     }
-
-    // console.log(monthData)
+    cell.appendChild(calendarTaskContainer);
 }
 
 export { calendarTest }
