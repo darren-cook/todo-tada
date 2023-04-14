@@ -1,4 +1,4 @@
-import { calendarTest } from "./calendar";
+import { initalizeCalendar } from "./calendar";
 
 const navButtons = document.querySelectorAll(".nav-item");
 
@@ -11,4 +11,4 @@ navButtons.forEach(navButton =>(
     })
 ))
 
-calendarTest();
+initalizeCalendar();

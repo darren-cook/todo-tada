@@ -139,6 +139,7 @@ main::-webkit-scrollbar-thumb {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 5.5rem;
 }
 
 #calendar-year {
@@ -149,6 +150,12 @@ main::-webkit-scrollbar-thumb {
     border: none;
     background-color: var(--white);
     font-size: 1.25rem;
+    transition: 100ms;
+}
+
+.calendar-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 table {
@@ -190,8 +197,8 @@ td {
 }
 
 .calendar-task-container {
-    height: clamp(40px, var(--width)/8.5, 65px);
-    width: clamp(40px, var(--width)/8.5, 65px);
+    height: clamp(40px, var(--width)/8, 70px);
+    width: clamp(40px, var(--width)/8, 70px);
     display: flex;
     align-items: center;
     justify-content: center;

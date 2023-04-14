@@ -5,7 +5,18 @@ import { compareAsc } from "date-fns";
 
 const today = new Date;
 let monthArray = getMonthArray(today);
-let monthData = getMonthData(monthArray);
+
+function initalizeCalendar(){
+    const monthData = getMonthData(monthArray);
+    generateCalendar(monthData);
+
+    const calendarButtons = document.querySelectorAll(".calendar-button");
+    calendarButtons.forEach(calendarButton => {
+        calendarButton.addEventListener("click", function(){
+            changeMonth(parseInt(calendarButton.dataset.shift));
+        })
+    })
+}
 
 function getMonthArray(date){
     const year = format(date, "yyyy")-0;
@@ -35,14 +46,11 @@ function getMonthData(monthArray){
         // 3 (4-1)
         const numOfYear = format(date, "L")-1;
         // 2 (3-1)
-        monthData.push([year, month, day, dayOfWeek, numOfWeek, numOfYear]);
+        const monthFull = format(date, "LLLL");
+        monthData.push([year, month, day, dayOfWeek, numOfWeek, numOfYear, monthFull]);
     });
     return(monthData)
 }
-
-function calendarTest(){
-    generateCalendar(monthData);
-    }
 
 function generateCalendar(monthData) {
     const weekCount = eachWeekOfInterval({
@@ -73,6 +81,11 @@ function generateCalendar(monthData) {
         }
         table.appendChild(row);
     }
+
+    const calendarMonth = document.getElementById("calendar-month");
+    const calendarYear = document.getElementById("calendar-year");
+    calendarMonth.innerHTML = monthData[0][6];
+    calendarYear.innerHTML = monthData[0][0]
 }
 function fillCell(cell, dayData){
     const calendarDate = document.createElement("p");
@@ -117,7 +130,18 @@ function fillCell(cell, dayData){
     cell.appendChild(calendarTaskContainer);
 }
 
-export { calendarTest }
+function changeMonth(shift){
+    monthArray[1] = monthArray[1]+shift;
+    const monthData = getMonthData(monthArray);
+
+    const table = document.getElementById("calendar-table");
+    while(table.firstChild){
+        table.removeChild(table.firstChild)
+    }
+    generateCalendar(monthData);
+}
+
+export { initalizeCalendar }
 
 // console.log(monthData);
 
