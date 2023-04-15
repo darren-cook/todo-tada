@@ -87,6 +87,7 @@ function generateCalendar(monthData) {
     calendarMonth.innerHTML = monthData[0][6];
     calendarYear.innerHTML = monthData[0][0]
 }
+
 function fillCell(cell, dayData){
     const calendarDate = document.createElement("p");
     calendarDate.classList.add("calendar-date");
@@ -142,25 +143,3 @@ function changeMonth(shift){
 }
 
 export { initalizeCalendar }
-
-// console.log(monthData);
-
-// monthArray[1] = monthArray[1]-1;
-
-// console.log(getMonthData(monthArray))
-
-// monthArray[1] = monthArray[1]-1;
-
-// console.log(getMonthData(monthArray))
-
-// monthArray[1] = monthArray[1]-1;
-
-// console.log(getMonthData(monthArray))
-
-// monthArray[1] = monthArray[1]-1;
-
-// console.log(getMonthData(monthArray))
-
-// monthArray[1] = monthArray[1]-1;
-
-// console.log(getMonthData(monthArray))

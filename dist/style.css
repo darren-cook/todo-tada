@@ -74,6 +74,10 @@ main {
     margin-top: 1rem;
 }
 
+.main-inactive {
+    display: none !important;
+}
+
 main::-webkit-scrollbar {
     width: 3px;
 }
