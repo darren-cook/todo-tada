@@ -23,13 +23,13 @@
         <main>
             <div id="main-calendar" class="main-container main-active">
                 <h2 class="main-heading">Calendar</h2>
-                <div id="calendar-top">
-                    <button id="calendar-backward" class="calendar-button" data-shift="-1">&lt</button>
-                    <h3 id="calendar-date">
-                        <span id="calendar-month"></span>
-                        <span id="calendar-year"></span>
+                <div id="calendar-top" class="main-top">
+                    <button id="calendar-backward" class="date-button" data-shift="-1">&#8592</button>
+                    <h3 id="calendar-date" class="date-container">
+                        <span id="calendar-month" class="date-primary"></span>
+                        <span id="calendar-year" class="date-secondary"></span>
                     </h3>
-                    <button id="calendar-forward" class="calendar-button" data-shift="1">&gt</button>
+                    <button id="calendar-forward" class="date-button" data-shift="1">&#8594</button>
                 </div>
                 <div id="calendar-mid">
                     <table>
@@ -66,8 +66,18 @@
             </div>
             <div id="main-todos" class="main-container main-inactive">
                 <h2 class="main-heading">To Dos</h2>
-                <div id="todos-top">
-                    
+                <div id="todos-top" class="main-top">
+                    <button id="todo-backward" class="date-button" data-shift="-1">&#8592</button>
+                    <h3 id="todos-date" class="date-container">
+                        <span id="todos-date" class="date-primary">Today</span>
+                        <span id="todos-year" class="date-secondary">April 17th</span>
+                    </h3>
+                    <button id="calendar-forward" class="date-button" data-shift="1">&#8594</button>
+                </div>
+                <div id="todos-mid">
+                    <div id="todos-overdue" class="todos-section todos-valid">
+                        <h4 id="todos-overdue-title" class="todos-title">Overdue</h4>
+                    </div>
                 </div>
             </div>
             <div id="main-routines" class="main-container main-inactive">
