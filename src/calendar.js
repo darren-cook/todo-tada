@@ -108,7 +108,7 @@ function fillCell(cell, dayData){
 
         const todoSpan = document.createElement("span");
         todoSpan.classList.add("calendar-span-color");
-        todoSpan.classList.add("calendar-key-todo");
+        todoSpan.classList.add("calendar-key-upcoming");
         todoSpan.innerHTML = "79";
 
         calendarTaskContainer.appendChild(todoSpan);

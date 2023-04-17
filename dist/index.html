@@ -55,8 +55,8 @@
                         <p>Complete</p>
                     </div>
                     <div class="calendar-key">
-                        <span class="calendar-key-color calendar-key-todo"></span>
-                        <p>To Do</p>
+                        <span class="calendar-key-color calendar-key-upcoming"></span>
+                        <p>Upcoming</p>
                     </div>
                     <div class="calendar-key">
                         <span class="calendar-key-color calendar-key-overdue"></span>
@@ -75,9 +75,56 @@
                     <button id="calendar-forward" class="date-button" data-shift="1">&#8594</button>
                 </div>
                 <div id="todos-mid">
-                    <div id="todos-overdue" class="todos-section todos-valid">
-                        <h4 id="todos-overdue-title" class="todos-title">Overdue</h4>
-                    </div>
+                    <details class="todo">
+                        <summary>
+                            <div class="todo-top">
+                                <span class="calendar-key-color calendar-key-overdue"></span>
+                                <h4>Laundry</h4>
+                                <p class="todo-time">10:00pm</p>
+                            </div>
+                        </summary>
+                        <div class="todo-bottom">
+                            <div class="todo-buttons">
+                                <button>Complete</button>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </div>
+                            <div class="todo-details">
+                                <dl class="todo-bottom-top">
+                                    <div class="details-first">
+                                        <div class="todo-detail">
+                                            <dt>Priority</dt>
+                                            <dl>High</dl>
+                                        </div>
+                                        <div class="todo-detail">
+                                            <dt>Project</dt>
+                                            <dl>Chores</dl>
+                                        </div>
+                                    </div>
+                                    <div class="details-second">
+                                        <div class="todo-detail">
+                                            <dt>Created</dt>
+                                            <dl>4/15/23</dl>
+                                            <dl>7:00am</dl>
+                                        </div>
+                                        <div class="todo-detail">
+                                            <dt>Completed</dt>
+                                            <dl>4/17/23</dl>
+                                            <dl>7:11am</dl>
+                                        </div>
+                                    </div>
+                                </dl>
+                                <dl>
+                                    <div class="todo-bottom-bottom">
+                                        <div class="todo-detail">
+                                            <dt>Details</dt>
+                                            <dl>Wash clothes and blankets.</dl>
+                                        </div>
+                                    </div>
+                                </dl>
+                            </div>
+                        </div>
+                    </details>
                 </div>
             </div>
             <div id="main-routines" class="main-container main-inactive">
