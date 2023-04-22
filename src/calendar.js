@@ -14,7 +14,7 @@ function initalizeCalendar(){
     const monthData = getMonthData(monthObject);
     generateCalendar(monthData);
 
-    const calendarButtons = document.querySelectorAll(".calendar-button");
+    const calendarButtons = document.querySelectorAll(".date-button");
     calendarButtons.forEach(calendarButton => {
         calendarButton.addEventListener("click", function(){
             changeMonth(parseInt(calendarButton.dataset.shift));

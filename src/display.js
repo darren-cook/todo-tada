@@ -1,10 +1,13 @@
-function changeDispay(navButton){
-    const navActive = document.querySelector(".nav-active");
-    const oldMain = document.querySelector(".main-active");
-    const newMain = document.querySelector(`#main-${navButton.id}`);
+import { initalizeCalendar } from "./calendar";
+import { initalizeTodos } from "./todos";
 
-    navActive.classList.toggle("nav-active");
-    navButton.classList.toggle("nav-active");
+function changeDispay(newNav){
+    const oldNav = document.querySelector(".nav-active");
+    const oldMain = document.querySelector(".main-active");
+    const newMain = document.querySelector(`#main-${newNav.id}`);
+
+    oldNav.classList.toggle("nav-active");
+    newNav.classList.toggle("nav-active");
 
     oldMain.classList.toggle("main-active");
     newMain.classList.toggle("main-active");
@@ -12,5 +15,10 @@ function changeDispay(navButton){
     newMain.classList.toggle("main-inactive");
 }
 
+function formDisplay(){
+    const dialogForm = document.querySelector("#dialog-form");
+    console.log("fire")
+    dialogForm.showModal();
+}
 
-export { changeDispay }
+export { changeDispay, formDisplay }
