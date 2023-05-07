@@ -16,9 +16,21 @@ function changeDispay(newNav){
 }
 
 function formDisplay(){
-    const dialogForm = document.querySelector("#dialog-form");
-    console.log("fire")
-    dialogForm.showModal();
+    const form = document.querySelector("#form");
+    form.showModal();
+
+    form.addEventListener("click", e =>{
+        const formDimensions = form.getBoundingClientRect();
+
+        if (
+            e.clientX < formDimensions.left ||
+            e.clientX > formDimensions.right ||
+            e.clientY < formDimensions.top ||
+            e.clientY > formDimensions.bottom
+        ) {
+            form.close();
+        }
+    })
 }
 
 export { changeDispay, formDisplay }

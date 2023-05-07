@@ -16,7 +16,6 @@
             <ul id="nav-items">
                 <li id="calendar" class="nav-item nav-active">Calendar</li>
                 <li id="todos" class="nav-item">To Dos</li>
-                <li id="projects" class="nav-item">Projects</li>
                 <li id="settings" class="nav-item">Settings</li>
             </ul>
         </nav>
@@ -96,10 +95,6 @@
                                             <dt>Priority</dt>
                                             <dl>High</dl>
                                         </div>
-                                        <div class="todo-detail">
-                                            <dt>Project</dt>
-                                            <dl>Chores</dl>
-                                        </div>
                                     </div>
                                     <div class="details-second">
                                         <div class="todo-detail">
@@ -127,9 +122,6 @@
                     </details>
                 </div>
             </div>
-            <div id="main-projects" class="main-container main-inactive">
-                <h2 class="main-heading">Projects</h2>
-            </div>
             <div id="main-settings" class="main-container main-inactive">
                 <h2 class="main-heading">Settings</h2>
             </div>
@@ -137,15 +129,15 @@
         <section id="add-section">
             <button id="add-button">+</button>
         </section>
-        <dialog id="dialog-form">
-            <div id="dialog-form-top">
-                <button>To Do</button>
-                <button>Project</button>
-            </div>
+        <dialog id="form">
             <form>
                 <label for="todo">To Do:</label><br>
                 <input type="text" id="input-todo" name="todo">
             </form>
+            <div id="form-bottom">
+                <button id="form-cancel">Cancel</button>
+                <button id="form-submit">Submit</button>
+            </div>
         </dialog>
     </div>
     <script src="main.js"></script>
