@@ -68,8 +68,8 @@
                 <div id="todos-top" class="main-top">
                     <button id="todo-backward" class="date-button todo-button" data-shift="-1">&#8592</button>
                     <h3 id="todos-date" class="date-container">
-                        <span id="todos-date" class="date-primary">Today</span>
-                        <span id="todos-year" class="date-secondary">April 17th</span>
+                        <span id="todos-date" class="date-primary">April 17th</span>
+                        <span id="todos-year" class="date-secondary">Today</span>
                     </h3>
                     <button id="calendar-forward" class="date-button todo-button" data-shift="1">&#8594</button>
                 </div>
@@ -126,18 +126,33 @@
                 <h2 class="main-heading">Settings</h2>
             </div>
         </main>
-        <section id="add-section">
+        <div id="add-section">
             <button id="add-button">+</button>
-        </section>
+        </div>
         <dialog id="form">
             <form>
-                <label for="todo">To Do:</label><br>
-                <input type="text" id="input-todo" name="todo">
+                <div class="form-section">
+                    <label for="todo">To Do:</label><br>
+                    <input type="text" id="input-todo" name="todo"><br>
+                    <label for="details">Details:</label><br>
+                    <textarea name="details" id="details" cols="25" rows="5"></textarea>
+                </div>
+                <div class="form-section">
+                    <label for="due-date">Due Date:</label><br>
+                    <input type="date" name="due-date" id="due-date"><br>
+                    <label for="due-time">Due Time:</label><br>
+                    <input type="time" name="due-time" id="due-time"><br>
+                    <label for="priority">Priority:</label>
+                    <select name="priority" id="priority">
+                        <option value=""></option>
+                        <option value="low">Low</option>
+                        <option value="standard">Standard</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
             </form>
-            <div id="form-bottom">
-                <button id="form-cancel">Cancel</button>
-                <button id="form-submit">Submit</button>
-            </div>
+            <button id="form-cancel">Close</button>
+            <button id="form-submit">Submit</button>
         </dialog>
     </div>
     <script src="main.js"></script>

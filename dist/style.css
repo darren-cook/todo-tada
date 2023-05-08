@@ -156,7 +156,7 @@ main::-webkit-scrollbar-thumb {
 
 #form {
     padding: 1rem;
-    width: 250px;
+    width: clamp(300px, 70vw, 500px);
     border: 1px solid black;
     border-radius: .5rem;
     margin: auto;
@@ -164,6 +164,11 @@ main::-webkit-scrollbar-thumb {
 
 #form::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* ----- Calendar ----- */
